@@ -1,6 +1,3 @@
-<div>
-  <div ng-repeat="item in items">
-    <div ng-include="'partials/card'"></div>
-    <hr/>
-  </div>
+<div ng-repeat="item in items">
+  <div class="card-{{ $index % 6 }}" ng-include="'partials/card'"></div>
 </div>

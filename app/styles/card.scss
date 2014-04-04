@@ -1,0 +1,22 @@
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+[class*='card-'] {
+  float: left;
+  width: 16.66%;
+  /*padding: 10px;*/
+  margin-left:auto;
+  margin-right:auto;
+  border: 1px solid;
+}
+
+[class*='card-'] {
+  padding-right: 20px;
+}
+
+[class*='card-']:last-of-type {
+  padding-right: 0;
+}
