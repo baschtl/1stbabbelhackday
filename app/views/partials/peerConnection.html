@@ -1,0 +1,13 @@
+<div ng-include="'partials/navbar'"></div>
+
+<p>
+  Hey, your id is: <span class="label label-info">{{peerId}}</span>
+</p>
+
+<button ng-click="createGame()" class="btn">Create game</button>
+<p>or</p>
+Peer id: <input ng-model="targetPeerId"> <button ng-click="connect()" class="btn">Connect to someone</button>
+
+<h2>Live string:</h2>
+<p>{{liveString}}</p>
+

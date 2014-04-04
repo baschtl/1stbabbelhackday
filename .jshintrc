@@ -13,7 +13,8 @@
     "iframe",
     "_gaq",
     "mockFlash",
-    "angular"
+    "angular",
+    "Peer"
   ],
   "es3": true,
   "browser": true,
