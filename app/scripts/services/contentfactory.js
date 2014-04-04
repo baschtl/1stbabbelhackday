@@ -23,7 +23,7 @@ angular.module('hackdayApp')
       this.picked = false;
       this.flip = function () {
         this.flipped = !this.flipped;
-        //collection.sendData(JSON.stringify({messageType: 'sync', id: this.id, type: this.type, flipped: this.flipped}));
+        collection.sendData(JSON.stringify({messageType: 'sync', id: this.id, type: this.type, flipped: this.flipped}));
       };
     };
 
@@ -81,7 +81,7 @@ angular.module('hackdayApp')
 
     collection.changeScoreBy = function (change) {
       collection.score += change;
-      //collection.sendData(JSON.stringify({messageType: 'score', score: collection.score}));
+      collection.sendData(JSON.stringify({messageType: 'score', score: collection.score}));
     };
 
     rawItems.forEach(function (item) {
