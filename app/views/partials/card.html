@@ -1,0 +1,8 @@
+<div ng-controller="CardCtrl" ng-click="cardClick()">
+  <div class="front-side" ng-show="frontUp">
+    <div> {{text}} </div>
+  </div>
+  <div class="back-side" ng-show="!frontUp">
+    <div> backside </div>
+  </div> 
+</div>

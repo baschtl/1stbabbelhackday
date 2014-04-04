@@ -11,7 +11,8 @@
     "angular-cookies": "1.2.11",
     "angular-sanitize": "1.2.11",
     "angular-route": "1.2.11",
-    "peerjs": "*"
+    "peerjs": "*",
+    "lodash": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.11",
