@@ -24,7 +24,7 @@ angular.module('hackdayApp')
       this.picked = false;
       this.flip = function () {
         this.flipped = !this.flipped;
-        // collection.sendData(JSON.stringify({id: this.id, type: this.type, flipped: this.flipped}));
+        //collection.sendData(JSON.stringify({id: this.id, type: this.type, flipped: this.flipped}));
       };
     };
 
