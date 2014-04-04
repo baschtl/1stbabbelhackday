@@ -12,7 +12,7 @@ Peer id: <input ng-model="targetPeerId"> <button ng-click="connect()" class="btn
     <div class="flip-container" ng-class="{active: card.flipped}">
       <div class="card-{{ $index % 6 }} flipper">
         <div class="front-side" ng-show="card.flipped" ng-class="{picked: card.picked}">
-          <div> {{card.text}} </div>
+          <div class="text-content"> {{card.text}} </div>
         </div>
         <div class="back-side" ng-show="!card.flipped">
           <span class="content">?</span>

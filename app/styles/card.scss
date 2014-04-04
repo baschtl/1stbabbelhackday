@@ -15,6 +15,14 @@
   font-weight: bold;
   height: 100%;
   width: 100%;
+  text-align: center;
+  line-height: 82px;
+  font-size: 3.5em;
+}
+
+.text-content {
+  text-align: center;
+  line-height: 82px;
 }
 
 .back-side {
@@ -59,9 +67,4 @@
   height: 90px;
   margin-top: 20px;
   margin-right: 20px;
-}
-
-.content {
-  padding-left: 35%;
-  font-size: 3.5em;
 }
