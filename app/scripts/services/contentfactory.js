@@ -24,12 +24,13 @@ angular.module('hackdayApp')
       this.picked = false;
       this.flip = function () {
         this.flipped = !this.flipped;
-        //collection.sendData(JSON.stringify({id: this.id, type: this.type, flipped: this.flipped}));
+        collection.sendData(JSON.stringify({messageType: 'sync', id: this.id, type: this.type, flipped: this.flipped}));
       };
     };
 
     var collection = {};
     collection.cards = [];
+    collection.score = 0;
     var firstPick;
     var secondPick;
 
@@ -52,20 +53,19 @@ angular.module('hackdayApp')
 
         firstPick = card;
         firstPick.picked = true;
-        console.log('one more');
 
       } else {
 
         if (firstPick.pair === card) {
           // message = (unmatchedPairs > 0) ? console.log("MATCH") : console.log("WON");
-          console.log('MATCH');
+          collection.changeScoreBy(3);
           firstPick.picked = false;
           if (secondPick) { secondPick.picked = false; }
           firstPick = secondPick = undefined;
         } else {
           secondPick = card;
           secondPick.picked = true;
-          console.log('MISS');
+          collection.changeScoreBy(-1);
         }
       }
 
@@ -78,6 +78,11 @@ angular.module('hackdayApp')
       console.log(peersCard);
       console.log(changedCard);
       changedCard.flipped = peersCard.flipped;
+    };
+
+    collection.changeScoreBy = function (change) {
+      collection.score += change;
+      collection.sendData(JSON.stringify({messageType: 'score', score: collection.score}));
     };
 
     rawItems.forEach(function (item) {
