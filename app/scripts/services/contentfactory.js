@@ -20,9 +20,10 @@ angular.module('hackdayApp')
       this.text = text;
       this.imageId = imageId;
       this.flipped = false;
+      this.picked = false;
       this.flip = function () {
         this.flipped = !this.flipped;
-        collection.sendData(JSON.stringify({id: this.id, type: this.type, flipped: this.flipped}));
+        // collection.sendData(JSON.stringify({id: this.id, type: this.type, flipped: this.flipped}));
       };
     };
 
@@ -43,10 +44,13 @@ angular.module('hackdayApp')
         if (secondPick) {
           firstPick.flip();
           secondPick.flip();
+          firstPick.picked = false;
+          secondPick.picked = false;
           firstPick = secondPick = undefined;
         }
 
         firstPick = card;
+        firstPick.picked = true;
         console.log('one more');
 
       } else {
@@ -54,9 +58,12 @@ angular.module('hackdayApp')
         if (firstPick.pair === card) {
           // message = (unmatchedPairs > 0) ? console.log("MATCH") : console.log("WON");
           console.log('MATCH');
+          firstPick.picked = false;
+          if (secondPick) { secondPick.picked = false; }
           firstPick = secondPick = undefined;
         } else {
           secondPick = card;
+          secondPick.picked = true;
           console.log('MISS');
         }
       }
