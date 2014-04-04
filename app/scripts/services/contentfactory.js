@@ -14,7 +14,6 @@ angular.module('hackdayApp')
       {id: 9, image_id:"354893",l1_text:"Koffert",l2_text:"suitcase"}
     ];
 
-
     var Card = function (id, type, text, imageId) {
       this.id = id;
       this.type = type;
