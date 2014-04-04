@@ -7,7 +7,8 @@
 [class*='card-'] {
   float: left;
   width: 13.33%;
-  border: 4px solid;
+  border: 1px solid;
+  border-radius: 5px;
 }
 
 .content {
@@ -16,22 +17,24 @@
   height: 100%;
   width: 100%;
   text-align: center;
-  line-height: 82px;
+  line-height: 88px;
   font-size: 3.5em;
 }
 
 .text-content {
   text-align: center;
-  line-height: 82px;
+  line-height: 88px;
+  border-radius: 5px;
 }
 
 .back-side {
+  border-radius: 5px;
   background: #ff8d15;
-  height: 100%;
   z-index: 2;
 }
 
 .front-side {
+  border-radius: 5px;
   transform: rotateY(180deg);
 }
 
