@@ -3,15 +3,15 @@
 angular.module('hackdayApp')
   .factory('contentFactory', function () {
     var rawItems = [
-      {id: 1, image_id:"381279",l1_text:"teleskop",l2_text:"telescope"},
-      {id: 2, image_id:"381281",l1_text:"tyngdekraft",l2_text:"gravity"},
-      {id: 3, image_id:"380440",l1_text:"satelitt",l2_text:"satellite"},
-      {id: 4, image_id:"378597",l1_text:"astronaut",l2_text:"astronaut"},
-      {id: 5, image_id:"381285",l1_text:"svart hull",l2_text:"black hole"},
-      {id: 6, image_id:"378560",l1_text:"astroide",l2_text:"asteroid"},
-      {id: 7, image_id:"378322",l1_text:"solformørkelse",l2_text:"solar eclipse"},
-      {id: 8, image_id:"381292",l1_text:"uendelig",l2_text:"infinite"},
-      {id: 9, image_id:"354893",l1_text:"Koffert",l2_text:"suitcase"}
+      {id: 1, image_id:"381279",l2_text:"teleskop",l1_text:"telescope"},
+      {id: 2, image_id:"381281",l2_text:"tyngdekraft",l1_text:"gravity"},
+      {id: 3, image_id:"380440",l2_text:"satelitt",l1_text:"satellite"},
+      {id: 4, image_id:"378597",l2_text:"astronaut",l1_text:"astronaut"},
+      {id: 5, image_id:"381285",l2_text:"svart hull",l1_text:"black hole"},
+      {id: 6, image_id:"378560",l2_text:"asteroide",l1_text:"asteroid"},
+      {id: 7, image_id:"378322",l2_text:"solformørkelse",l1_text:"solar eclipse"},
+      {id: 8, image_id:"381292",l2_text:"uendelig",l1_text:"infinite"},
+      {id: 9, image_id:"354893",l2_text:"koffert",l1_text:"suitcase"}
     ];
 
     var Card = function (id, type, text, imageId) {
