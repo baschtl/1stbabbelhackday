@@ -13,7 +13,7 @@
 
   <div ng-repeat="card in collection.cards" ng-click="collection.cardClicked(card)">
     <div class="flip-container" ng-class="{active: card.flipped}">
-      <div class="card-{{ $index % 6 }} flipper"">
+      <div class="outer-card card-{{ $index % 6 }} flipper" ng-class="{picked: card.picked}">
         <div class="front-side" ng-show="card.flipped" ng-class="{picked: card.picked}">
           <div class="text-content"> {{card.text}} </div>
           <div class="image-content" ng-class="{learning: card.type === 'learning'}" ng-style="{ 'background':'url(http://d1rgxz7vx6mf2z.cloudfront.net/image/90x90/' + card.imageId + '.jpg)'}"> </div>

@@ -60,6 +60,10 @@
   left: 0;
 }
 
+.outer-card.picked {
+  border-color: red;  
+}
+
 .flip-container {
   perspective: 1000;
 }
