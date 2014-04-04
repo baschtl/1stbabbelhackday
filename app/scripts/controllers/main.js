@@ -4,6 +4,7 @@ angular.module('hackdayApp')
 .controller('MainCtrl', function ($scope, $http, contentFactory) {
   var collection = contentFactory.getContent();
   $scope.collection = collection;
+  $scope.opponentScore = 0;
 
   var peer = new Peer({key: 'jibe3z01j1fnipb9'});
 
@@ -39,10 +40,18 @@ angular.module('hackdayApp')
   };
 
   var syncData = function (data) {
-    collection.syncItems(JSON.parse(data));
-    $scope.$apply(function () {
-      // $scope.collection = collection;
-    });
+    var parsedData = JSON.parse(data);
+    console.log(parsedData);
+    switch (parsedData.messageType) {
+      case 'sync':
+        collection.syncItems(parsedData);
+        break;
+      case 'score':
+        $scope.opponentScore = parsedData.score;
+        console.log($scope.opponentScore);
+        break;
+    }
+    $scope.$apply(function () { });
   };
 
   var writeMessage = function (message) {
