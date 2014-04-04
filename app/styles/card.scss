@@ -15,40 +15,56 @@
   font-weight: bold;
   height: 100%;
   width: 100%;
+  text-align: center;
+  line-height: 82px;
+  font-size: 3.5em;
+}
+
+.text-content {
+  text-align: center;
+  line-height: 82px;
 }
 
 .back-side {
   background: #ff8d15;
   height: 100%;
+  z-index: 2;
 }
 
-@media  screen and (min-width: 768px),
-        screen and (max-width: 768px) {
-
-  [class*='card-'] {
-    height: 90px;
-    margin-top: 20px;
-    margin-right: 20px;
-  }
-
-  .content {
-    padding-left: 35%;
-    font-size: 3.5em;
-  }
-
+.front-side {
+  transform: rotateY(180deg);
 }
 
-@media screen and (min-width: 1024px) {
+.front-side, .back-side {
+  backface-visibility: hidden;
 
-  [class*='card-'] {
-    height: 130px;
-    margin-top: 30px;
-    margin-right: 30px;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-  .content {
-    padding-left: 35%;
-    font-size: 5em;
-  }
+.flip-container {
+  perspective: 1000;
+}
 
+.flip-container:active .flipper, .flip-container.active .flipper {
+  transform: rotateY(180deg);
+}
+
+.flip-container, .front-side, .back-side {
+  width: 100%
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+
+[class*='card-'] {
+  height: 90px;
+  margin-top: 20px;
+  margin-right: 20px;
 }
