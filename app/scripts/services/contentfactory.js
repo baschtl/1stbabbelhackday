@@ -10,6 +10,7 @@ angular.module('hackdayApp')
       {image_id:"381285",l1_text:"svart hull",l2_text:"black hole"},
       {image_id:"378560",l1_text:"astroide",l2_text:"asteroid"},
       {image_id:"378322",l1_text:"solformørkelse",l2_text:"solar eclipse"},
+      {image_id:"381292",l1_text:"uendelig",l2_text:"infinite"},
       {image_id:"381292",l1_text:"uendelig",l2_text:"infinite"}
     ];
 
