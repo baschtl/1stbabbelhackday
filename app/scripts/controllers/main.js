@@ -16,12 +16,13 @@ angular.module('hackdayApp')
 
   $scope.createGame = function () {
     peer.on('connection', function (conn) {
+      console.log("Opponent is connected!");
       collection.sendData = function (data) {
         conn.send(data);
       };
       conn.on('data', syncData);
     });
-    console.log('listening for connection');
+    $scope.connected = true;
   };
 
 
@@ -29,12 +30,11 @@ angular.module('hackdayApp')
     var peerId = $scope.targetPeerId;
     var conn = peer.connect(peerId);
     conn.on('open', function () {
-      writeMessage('connection established');
-      conn.send('HEY!');
       collection.sendData = function (data) {
         conn.send(data);
       };
     });
+    $scope.connected = true;
     conn.on('data', syncData);
 
   };

@@ -1,14 +1,15 @@
-<div>
-<p>
-  Hey, your id is: <span class="label label-info">{{peerId}}</span>
-</p>
-<button ng-click="createGame()" class="btn">Create game</button>
-<p>or</p>
-Peer id: <input ng-model="targetPeerId"> <button ng-click="connect()" class="btn">Connect to someone</button>
+<p> Hey, your id is: <span class="label label-info">{{peerId}}</span> </p>
+<div class="connection-info" ng-show="!connected">
+  <button ng-click="createGame()" class="btn btn-success">Create game</button>
+  <h4>or</h4>
+  <button ng-click="connect()" class="btn btn-info">Connect to someone</button>
+  Put your oppont id: <input ng-model="targetPeerId"> 
 
-<h2>{{message}}</h2>
-<h3>Your score: {{collection.score}}</h3>
-<h3>Your opponets score: {{opponentScore}}</h3>
+</div>
+
+<div class="game-info" ng-show="connected">
+  <h3>Your score: {{collection.score}}</h3>
+  <h3>Your opponets score: {{opponentScore}}</h3>
 
   <div ng-repeat="card in collection.cards" ng-click="collection.cardClicked(card)">
     <div class="flip-container" ng-class="{active: card.flipped}">
@@ -23,4 +24,5 @@ Peer id: <input ng-model="targetPeerId"> <button ng-click="connect()" class="btn
       </div>
     </div>
   </div>
+
 </div>
