@@ -8,21 +8,12 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
   clear: both;
 }
 
-@media  screen and (min-width: 768px),
-        screen and (max-width: 768px) {
-  .container {
+.container {
       width: 750px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .container {
-      width: 1000px;
-  }
 }
 
 .picked {
-  background-color: red;
+  background-color: #edebe1;
 } 
 
 
