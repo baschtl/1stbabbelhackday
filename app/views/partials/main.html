@@ -1,3 +1,12 @@
-<div ng-repeat="item in items">
-  <div class="card-{{ $index % 6 }}" ng-include="'partials/card'"></div>
+<div>
+  <div ng-repeat="card in collection.cards" ng-click="collection.cardClicked(card)">
+    <div class="card-{{ $index % 6 }}">
+      <div class="front-side" ng-show="card.flipped">
+        <div> {{card.text}} </div>
+      </div>
+      <div class="back-side" ng-show="!card.flipped">
+        <span class="content">?</span>
+      </div>
+    </div>
+  </div>
 </div>
