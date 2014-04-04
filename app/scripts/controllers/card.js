@@ -2,9 +2,7 @@
 
 angular.module('hackdayApp')
   .controller('CardCtrl', function ($scope) {
-    $scope.text = $scope.item.text;
-    $scope.frontUp = false;
-    $scope.cardClick = function () {
-      $scope.frontUp = !$scope.frontUp;
-    }
+    var item = $scope.item;
+    $scope.text = item.text;
+    $scope.cardClick = item.onClick;
   });
