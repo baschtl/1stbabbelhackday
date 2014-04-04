@@ -6,7 +6,7 @@
 
 [class*='card-'] {
   float: left;
-  width: 13.33%;
+  width: 90px;
   border: 1px solid;
   border-radius: 5px;
 }
@@ -25,17 +25,30 @@
   text-align: center;
   line-height: 88px;
   border-radius: 5px;
-}
+  }
 
 .back-side {
   border-radius: 5px;
-  background: #ff8d15;
+  background: #727267;
   z-index: 2;
 }
 
 .front-side {
   border-radius: 5px;
   transform: rotateY(180deg);
+}
+
+.image-content {
+  opacity: 0;
+  height: 90px;
+  width: 90px;
+  position: absolute;
+  top: 0;
+  border-radius: 5px;
+}
+
+.image-content.learning {
+  opacity: 0.2;
 }
 
 .front-side, .back-side {
