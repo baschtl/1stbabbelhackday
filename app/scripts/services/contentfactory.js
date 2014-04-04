@@ -3,10 +3,10 @@
 angular.module('hackdayApp')
   .factory('contentFactory', function () {
     var rawItems = [
-      {image_id:"381279",l1_text:"teleskop",l2_text:"telescope"},
-      {image_id:"381281",l1_text:"tyngdekraft",l2_text:"gravity"}/*,
-      {image_id:"380440",l1_text:"satelitt",l2_text:"satellite"},
-      {image_id:"378597",l1_text:"astronaut",l2_text:"astronaut"},
+      {id: 1, image_id:"381279",l1_text:"teleskop",l2_text:"telescope"},
+      {id: 2, image_id:"381281",l1_text:"tyngdekraft",l2_text:"gravity"},
+      {id: 3, image_id:"380440",l1_text:"satelitt",l2_text:"satellite"},
+      {id: 4, image_id:"378597",l1_text:"astronaut",l2_text:"astronaut"}/*,
       {image_id:"381285",l1_text:"svart hull",l2_text:"black hole"},
       {image_id:"378560",l1_text:"astroide",l2_text:"asteroid"},
       {image_id:"378322",l1_text:"solformørkelse",l2_text:"solar eclipse"},
@@ -14,13 +14,15 @@ angular.module('hackdayApp')
     ];
 
 
-    var Card = function (type, text, imageId) {
+    var Card = function (id, type, text, imageId) {
+      this.id = id;
       this.type = type;
       this.text = text;
       this.imageId = imageId;
       this.flipped = false;
       this.flip = function () {
         this.flipped = !this.flipped;
+        collection.sendData(JSON.stringify({id: this.id, type: this.type, flipped: this.flipped}));
       };
     };
 
@@ -61,9 +63,18 @@ angular.module('hackdayApp')
 
     };
 
+    collection.syncItems = function (peersCard) {
+      var changedCard = _.find(collection.cards, function (card) {
+        return card.id === peersCard.id && card.type === peersCard.type;
+      });
+      console.log(peersCard);
+      console.log(changedCard);
+      changedCard.flipped = peersCard.flipped;
+    };
+
     rawItems.forEach(function (item) {
-      var referenceCard = new Card('reference', item.l1_text, item.image_id);
-      var learningCard = new Card('learning', item.l2_text, item.image_id);
+      var referenceCard = new Card(item.id, 'reference', item.l1_text, item.image_id);
+      var learningCard = new Card(item.id, 'learning', item.l2_text, item.image_id);
       referenceCard.pair = learningCard;
       learningCard.pair = referenceCard;
       collection.cards = collection.cards.concat([referenceCard, learningCard]);

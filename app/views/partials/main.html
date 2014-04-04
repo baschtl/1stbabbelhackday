@@ -1,4 +1,13 @@
 <div>
+<p>
+  Hey, your id is: <span class="label label-info">{{peerId}}</span>
+</p>
+<button ng-click="createGame()" class="btn">Create game</button>
+<p>or</p>
+Peer id: <input ng-model="targetPeerId"> <button ng-click="connect()" class="btn">Connect to someone</button>
+
+<h2>{{message}}</h2>
+
   <div ng-repeat="card in collection.cards" ng-click="collection.cardClicked(card)">
       <div class="front-side" ng-show="card.flipped">
         <div> {{card.text}} </div>
