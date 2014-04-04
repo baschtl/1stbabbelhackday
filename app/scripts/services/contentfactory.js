@@ -16,7 +16,6 @@ angular.module('hackdayApp')
     // Public API here
     return {
       getContent: function () {
-        console.log("HEI!");
         return items;
       }
     };
