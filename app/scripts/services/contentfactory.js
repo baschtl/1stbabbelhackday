@@ -21,22 +21,55 @@ angular.module('hackdayApp')
       this.flipped = false;
       this.flip = function () {
         this.flipped = !this.flipped;
-      }
+      };
     };
 
     var collection = {};
-    collection.items = [];
-    collection.openItem = undefined;
+    collection.cards = [];
+    var firstPick;
+    var secondPick;
+
+    collection.cardClicked = function (card) {
+      if (card.flipped) {
+        return;
+      }
+
+      card.flip();
+
+      if (!firstPick || secondPick) {
+
+        if (secondPick) {
+          firstPick.flip();
+          secondPick.flip();
+          firstPick = secondPick = undefined;
+        }
+
+        firstPick = card;
+        console.log('one more');
+
+      } else {
+
+        if (firstPick.pair === card) {
+          // message = (unmatchedPairs > 0) ? console.log("MATCH") : console.log("WON");
+          console.log('MATCH');
+          firstPick = secondPick = undefined;
+        } else {
+          secondPick = card;
+          console.log('MISS');
+        }
+      }
+
+    };
 
     rawItems.forEach(function (item) {
       var referenceCard = new Card('reference', item.l1_text, item.image_id);
       var learningCard = new Card('learning', item.l2_text, item.image_id);
       referenceCard.pair = learningCard;
       learningCard.pair = referenceCard;
-      collection.items = collection.items.concat([referenceCard, learningCard]);
+      collection.cards = collection.cards.concat([referenceCard, learningCard]);
     });
 
-    collection.items = _.shuffle(collection.items);
+    collection.cards = _.shuffle(collection.cards);
 
     // Public API here
     return {

@@ -2,5 +2,5 @@
 
 angular.module('hackdayApp')
   .controller('MainCtrl', function ($scope, $http, contentFactory) {
-    $scope.items = contentFactory.getContent().items;
+    $scope.collection = contentFactory.getContent();
   });

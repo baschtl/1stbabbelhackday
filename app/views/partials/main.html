@@ -1,6 +1,11 @@
 <div>
-  <div ng-repeat="item in items">
-    <div ng-include="'partials/card'"></div>
+  <div ng-repeat="card in collection.cards" ng-click="collection.cardClicked(card)">
+      <div class="front-side" ng-show="card.flipped">
+        <div> {{card.text}} </div>
+      </div>
+      <div class="back-side" ng-show="!card.flipped">
+        <div> ####### </div>
+      </div>
     <hr/>
   </div>
 </div>
